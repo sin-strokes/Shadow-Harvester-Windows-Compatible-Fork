@@ -298,7 +298,7 @@ impl<'a> DataDir<'a> {
         let safe_nonce = sanitize_path_component(&solution.nonce);
         
         // Use a unique file name based on challenge, address, and nonce
-        path.push(format!("{}_{}_{}. json", safe_address, safe_challenge, safe_nonce));
+        path.push(format!("{}_{}_{}.json", safe_address, safe_challenge, safe_nonce));
 
         let solution_json = serde_json::to_string(solution)
             .map_err(|e| format!("Could not serialize pending solution: {}", e))?;
